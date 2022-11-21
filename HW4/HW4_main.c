@@ -6,23 +6,34 @@
 int sort_rule(Element point1, Element point2)
 {
 	// (1) fill this part
+    if (point1->x > point2->x){
+        return 1; //if point1->x is greater than point2.x, return 1 it is just inserting data
+    }
+    else if (point1->x == point2->x){//if point1->x and point2.x are the same, compare with point1->y and point2->y
+        if (point1->y > point2 ->y){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+    else{
+        return 0;
+    }
 }
 
 int main()
 {
 	Lhead* plist = createList();
-    struct _point p;
-    float p1[10];
-    float p2[10];
-    float test[2];
-    for(int i =0; i<10; i++){
-        p1[i] = (float)(rand()%100)/10;
-        p2[i] = (float)(rand()%100)/10;
-        p.x = p1[i];
-        p.y = p2[i];
-        printf("%f, %f \n", p1[i],p2[i]);
-        insertionbyRule(plist,&p);
+    setSortRule(plist,(sort_rule));
+    for(int i =0; i<10; i++){//create 10 pointers to the structure
+        Point* data = (Point*)malloc(sizeof(Point));
+        data->x = (float)(rand()%100)/10;//use rand method. its range is 0 to 10.0
+        data->y = (float)(rand()%100)/10;//use rand method. its range is 0 to 10.0
+        insertionbyRule(plist,data);//insert data into list by using insertionbyRule
     }
-    printf("%f,%f\n", plist[0]);
-	// (2), (3), (4) fill this part
+    for(int i =0; i<10; i++) {
+        printf("%f, %f \n", plist->front->link->data->x, plist->front->link->data->y);//print list's front data
+        deletion(plist, plist->front);//and delete front data
+    }
 }
