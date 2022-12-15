@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <malloc.h>
-//#include "generalList2.h"
-#include "HW4.h"
+#include <malloc.h>
+#include "generalList2.h"
+#include "HW4_2017114657.h"
 
 
 Lhead* createList()

@@ -1,6 +1,6 @@
 #include <stdio.h>
-//#include "generalList2.h"
-#include "HW4.h"
+#include "generalList2.h"
+#include "HW4_2017114657.h"
 #include <stdlib.h>
 
 int sort_rule(Element point1, Element point2)
